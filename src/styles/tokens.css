@@ -1,0 +1,48 @@
+:root {
+  /* editorial neutrals */
+  --noma-paper: #f5efe2;
+  --noma-charcoal: #18140f;
+  --noma-ink: #0d0b08;
+
+  /* Namibia atmosphere */
+  --namibia-sand: #c9a876;
+  --namibia-burnt: #b85c33;
+  --namibia-mineral: #5c3f2c;
+  --namibia-sky: #7fa0bd;
+
+  /* Japan atmosphere */
+  --japan-black: #07070a;
+  --japan-wet: #1a2230;
+  --japan-ember: #e8a54b;
+  --japan-signal: #b8443a;
+
+  /* Sri Lanka atmosphere */
+  --srilanka-green: #24402f;
+  --srilanka-deep: #12261b;
+  --srilanka-paint: #c6603f;
+  --srilanka-sun: #e7b856;
+  --srilanka-ocean: #3d7889;
+
+  /* Patagonia atmosphere */
+  --patagonia-stone: #3a3d3f;
+  --patagonia-ice: #cfdadd;
+  --patagonia-teal: #3f7d72;
+  --patagonia-cloud: #8b9296;
+  --patagonia-dark: #1c2022;
+
+  /* Jordan atmosphere */
+  --jordan-terracotta: #b5623b;
+  --jordan-rose: #c98871;
+  --jordan-sandstone: #d9a066;
+  --jordan-shadow: #241611;
+
+  /* type */
+  --font-display: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+  --font-supporting: 'Inter', -apple-system, sans-serif;
+
+  /* layout */
+  --edge: clamp(1.25rem, 4vw, 3rem);
+
+  /* motion */
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+}

@@ -1,0 +1,93 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* overflow-x is guarded on body only, not html: setting it here too
+   forces overflow-y to compute as `auto` (the CSS spec's rule for a
+   mismatched pair), which makes browsers treat html as an independent
+   scroll container and breaks `position: sticky` everywhere in the
+   document (used by Travel by Feeling's mobile layout, among others). */
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--noma-charcoal);
+  color: var(--noma-paper);
+  font-family: var(--font-supporting);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* Shared close affordance for every destination's Explore state. */
+.explore-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-supporting);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: inherit;
+}
+
+.explore-close__line {
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: currentColor;
+  transform-origin: center;
+  transition: width 0.35s var(--ease-editorial);
+}
+
+.explore-close:hover .explore-close__line {
+  width: 30px;
+}
+
+/* A 640px floor keeps the hero/pinned sequence from ever collapsing
+   too short to read on a normal phone — but on a short viewport
+   (landscape phones, small-height browser windows) it does the
+   opposite: it forces these sections taller than the viewport, and
+   every `vh`/`bottom: Xvh` position inside them (title placement,
+   Explore triggers) then measures against that oversized box instead
+   of what's actually visible, pushing content off-screen. */
+@media (max-height: 500px) {
+  .hero,
+  .japan-hero,
+  .srilanka-hero,
+  .journey-stage {
+    min-height: 420px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

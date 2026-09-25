@@ -1,0 +1,271 @@
+.japan-hero {
+  position: relative;
+  height: 100svh;
+  min-height: 640px;
+  width: 100%;
+  background: var(--japan-black);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(220px, 26vw, 360px);
+}
+
+.japan-hero__frame {
+  position: relative;
+  grid-column: 1 / 2;
+  height: 100%;
+  overflow: hidden;
+}
+
+.japan-hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 58% 72%;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.japan-hero__scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(7, 7, 10, 0.55) 0%,
+      rgba(7, 7, 10, 0) 24%,
+      rgba(7, 7, 10, 0) 58%,
+      rgba(7, 7, 10, 0.4) 100%
+    ),
+    linear-gradient(
+      to right,
+      rgba(7, 7, 10, 0) 40%,
+      var(--japan-black) 100%
+    );
+}
+
+.japan-hero__meta {
+  position: absolute;
+  top: 7.25rem;
+  right: var(--edge);
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+  font-family: var(--font-supporting);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--noma-paper);
+  opacity: 0.85;
+}
+
+.japan-hero__title {
+  position: absolute;
+  right: clamp(1rem, 2.6vw, 2rem);
+  bottom: 6vh;
+  z-index: 6;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(5.5rem, 15vw, 11.5rem);
+  line-height: 0.82;
+  letter-spacing: -0.01em;
+  color: var(--noma-paper);
+  text-transform: uppercase;
+  text-shadow: 0 4px 50px rgba(7, 7, 10, 0.5);
+}
+
+.japan-hero__title span {
+  display: block;
+}
+
+.japan-hero__explore {
+  position: absolute;
+  top: 10.5rem;
+  right: var(--edge);
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-supporting);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--noma-paper);
+}
+
+.japan-hero__explore-line {
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--japan-signal);
+  transition: width 0.4s var(--ease-editorial);
+}
+
+.japan-hero__explore:hover .japan-hero__explore-line {
+  width: 44px;
+}
+
+@media (max-width: 1024px) {
+  .japan-hero {
+    grid-template-columns: minmax(0, 1fr) clamp(160px, 30vw, 260px);
+  }
+
+  .japan-hero__title {
+    font-size: clamp(4.5rem, 13vw, 8rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .japan-hero {
+    grid-template-columns: minmax(0, 1fr) clamp(140px, 36vw, 220px);
+  }
+
+  .japan-hero__meta {
+    top: 6rem;
+  }
+
+  .japan-hero__explore {
+    top: 9.25rem;
+  }
+
+  .japan-hero__title {
+    font-size: clamp(3.4rem, 16vw, 5.5rem);
+  }
+}
+
+/* ---------------------------------------------------------------- */
+/* Explore — Japan opens as a dark vertical panel sliding in from   */
+/* the right, layered over the alley photograph. Distinct from      */
+/* Namibia's bottom drawer: this one is tall, narrow and precise.   */
+/* ---------------------------------------------------------------- */
+
+.japan-detail {
+  position: absolute;
+  z-index: 15;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: clamp(320px, 46%, 480px);
+  background: linear-gradient(
+    180deg,
+    rgba(7, 7, 10, 0.97) 0%,
+    rgba(10, 12, 18, 0.94) 100%
+  );
+  padding: 7.5rem clamp(1.5rem, 3vw, 2.5rem) 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  color: var(--noma-paper);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.japan-detail__close {
+  position: absolute;
+  top: 1.75rem;
+  right: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.japan-detail__kicker {
+  font-family: var(--font-supporting);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--japan-signal);
+}
+
+.japan-detail__quote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+  line-height: 1.25;
+}
+
+.japan-detail__image {
+  margin: 0.25rem 0 0;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+}
+
+.japan-detail__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 48% 38%;
+}
+
+.japan-detail__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: auto;
+  font-family: var(--font-supporting);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.japan-detail__link {
+  font-family: var(--font-supporting);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--noma-paper);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 0.3rem;
+  align-self: flex-start;
+}
+
+.japan-detail__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--japan-signal);
+  transform: scaleX(0.3);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-editorial);
+}
+
+.japan-detail__link:hover::after {
+  transform: scaleX(1);
+}
+
+[data-exploring='true'] .japan-detail {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .japan-detail {
+    width: 100%;
+    padding-top: clamp(5.5rem, 15vh, 6.5rem);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  .japan-detail__image {
+    aspect-ratio: 4 / 3;
+  }
+}

@@ -1,0 +1,52 @@
+.final-cta {
+  position: relative;
+  background: var(--noma-paper);
+  color: var(--noma-ink);
+  padding: clamp(9rem, 20vh, 13rem) var(--edge);
+  text-align: center;
+}
+
+.final-cta__headline {
+  margin: 0 auto;
+  max-width: 20ch;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 7vw, 6rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+.final-cta__support {
+  margin: clamp(1.5rem, 4vh, 2.25rem) auto 0;
+  max-width: 32ch;
+  font-family: var(--font-supporting);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.6;
+  opacity: 0.72;
+}
+
+.final-cta__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: clamp(2.5rem, 6vh, 3.5rem);
+  text-decoration: none;
+  color: var(--noma-ink);
+  font-family: var(--font-supporting);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.final-cta__link-line {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--noma-ink);
+  transition: width 0.4s var(--ease-editorial);
+}
+
+.final-cta__link:hover .final-cta__link-line {
+  width: 52px;
+}

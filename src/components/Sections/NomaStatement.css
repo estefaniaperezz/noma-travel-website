@@ -1,0 +1,71 @@
+.noma-statement {
+  position: relative;
+  background: var(--noma-paper);
+  color: var(--noma-ink);
+  padding: clamp(7rem, 15vh, 10rem) var(--edge) clamp(8rem, 16vh, 11rem);
+}
+
+.noma-statement__kicker {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: clamp(0rem, 6vw, 7rem);
+  margin-bottom: clamp(2.5rem, 6vh, 4rem);
+  font-family: var(--font-supporting);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.noma-statement__kicker::before {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  background: var(--namibia-burnt);
+}
+
+.noma-statement__lead {
+  margin: 0 0 clamp(3rem, 7vh, 4.5rem);
+  margin-left: clamp(0rem, 6vw, 7rem);
+  max-width: 19ch;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3.2rem, 7.2vw, 7rem);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+}
+
+.noma-statement__support {
+  margin: 0;
+  margin-left: clamp(1rem, 30vw, 34rem);
+  max-width: 32ch;
+  font-family: var(--font-supporting);
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  line-height: 1.65;
+  opacity: 0.72;
+}
+
+@media (max-width: 1024px) {
+  .noma-statement__support {
+    margin-left: clamp(1rem, 18vw, 14rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .noma-statement {
+    padding: clamp(5rem, 11vh, 6.5rem) var(--edge) clamp(5.5rem, 11vh, 7rem);
+  }
+
+  .noma-statement__kicker,
+  .noma-statement__lead {
+    margin-left: 0;
+  }
+
+  .noma-statement__support {
+    margin-left: 0;
+    max-width: 30ch;
+  }
+}

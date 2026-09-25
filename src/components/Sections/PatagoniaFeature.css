@@ -1,0 +1,245 @@
+.patagonia {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  background: var(--patagonia-dark);
+  overflow: hidden;
+}
+
+.patagonia__media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.patagonia__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 55%;
+  will-change: transform;
+}
+
+.patagonia__scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to top,
+      rgba(28, 32, 34, 0.75) 0%,
+      rgba(28, 32, 34, 0.1) 42%,
+      rgba(28, 32, 34, 0.25) 100%
+    ),
+    linear-gradient(
+      to right,
+      rgba(28, 32, 34, 0.15) 0%,
+      rgba(28, 32, 34, 0) 45%
+    );
+}
+
+.patagonia__title {
+  position: relative;
+  z-index: 4;
+  margin: 0;
+  padding-top: 34vh;
+  padding-left: var(--edge);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(4.5rem, 12vw, 9.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.01em;
+  color: var(--noma-paper);
+  text-shadow: 0 4px 40px rgba(28, 32, 34, 0.5);
+  will-change: clip-path, transform;
+}
+
+.patagonia__copy {
+  position: relative;
+  z-index: 4;
+  margin: 1.5rem 0 0;
+  padding-left: var(--edge);
+  max-width: 24ch;
+  font-family: var(--font-supporting);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.5;
+  color: var(--noma-paper);
+  opacity: 0.85;
+}
+
+.patagonia__link {
+  position: relative;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: clamp(2rem, 5vh, 3rem) 0 clamp(6rem, 12vh, 9rem);
+  padding: 0 0 0 var(--edge);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--noma-paper);
+  font-family: var(--font-supporting);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.patagonia__link-line {
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--patagonia-teal);
+  transition: width 0.4s var(--ease-editorial);
+}
+
+.patagonia__link:hover .patagonia__link-line {
+  width: 44px;
+}
+
+.patagonia__secondary {
+  position: absolute;
+  z-index: 5;
+  top: 10vh;
+  right: var(--edge);
+  margin: 0;
+  width: clamp(220px, 24vw, 340px);
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55);
+}
+
+.patagonia__secondary img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------------------------------------------------------------- */
+/* Explore — slower and broader than the destinations before it: a  */
+/* wide, text-only ledger rises the full width of the frame rather   */
+/* than a drawer or side column, matching Patagonia's restraint.     */
+/* ---------------------------------------------------------------- */
+
+.patagonia-detail {
+  position: absolute;
+  z-index: 15;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 42%;
+  background: rgba(16, 19, 21, 0.94);
+  color: var(--noma-paper);
+  padding: clamp(1.5rem, 3vh, 2.25rem) var(--edge);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+}
+
+[data-exploring='true'] .patagonia-detail {
+  pointer-events: auto;
+}
+
+.patagonia-detail__close {
+  position: absolute;
+  top: 1.5rem;
+  right: var(--edge);
+}
+
+.patagonia-detail__kicker {
+  font-family: var(--font-supporting);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--patagonia-teal);
+}
+
+.patagonia-detail__quote {
+  margin: 0;
+  max-width: 30ch;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+  line-height: 1.15;
+}
+
+.patagonia-detail__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.9rem;
+  font-family: var(--font-supporting);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.patagonia-detail__link {
+  align-self: flex-start;
+  font-family: var(--font-supporting);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--noma-paper);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 0.3rem;
+}
+
+.patagonia-detail__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--patagonia-teal);
+  transform: scaleX(0.3);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-editorial);
+}
+
+.patagonia-detail__link:hover::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-exploring='true'] .patagonia-detail {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .patagonia__secondary {
+    width: clamp(160px, 22vw, 240px);
+    top: 8vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .patagonia__secondary {
+    display: none;
+  }
+
+  .patagonia__title {
+    padding-top: 42vh;
+    font-size: clamp(3.2rem, 16vw, 5.5rem);
+  }
+
+  .patagonia-detail {
+    height: auto;
+    max-height: 74vh;
+    padding-top: clamp(3rem, 7vh, 3.5rem);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+}
