@@ -11,7 +11,11 @@ export function useSmoothScroll() {
 
     if (prefersReducedMotion) return
 
-    const lenis = new Lenis()
+    const lenis = new Lenis({
+      // Keep the editorial softness, but let wheel input settle sooner
+      // so the page stops cleanly at section and document boundaries.
+      lerp: 0.16,
+    })
     lenisRef.current = lenis
 
     lenis.on('scroll', ScrollTrigger.update)
