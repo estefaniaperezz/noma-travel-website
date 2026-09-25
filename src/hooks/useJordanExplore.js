@@ -42,9 +42,13 @@ export function useJordanExplore(sectionRef, isOpen) {
     const mm = gsap.matchMedia()
 
     mm.add(
-      { isMobile: '(max-width: 768px)', isDesktop: '(min-width: 769px)' },
+      {
+        isMobile: '(max-width: 768px)',
+        isTablet: '(min-width: 769px) and (max-width: 1024px)',
+        isDesktop: '(min-width: 1025px)',
+      },
       (context) => {
-        const { isMobile } = context.conditions
+        const { isMobile, isTablet } = context.conditions
         const detail = section.querySelector('.jordan__detail')
         const title = section.querySelector('.jordan__title')
         const copy = section.querySelector('.jordan__copy')
@@ -62,7 +66,9 @@ export function useJordanExplore(sectionRef, isOpen) {
             .to(title, { autoAlpha: 0.16, duration: 0.5 }, 0)
             .to(narrative, { autoAlpha: 1, duration: 0.6 }, 0.15)
         } else {
-          tl.to(detail, { width: 456, duration: 1.7 }, 0)
+          const expandedWidth = isTablet ? Math.min(window.innerWidth * 0.42, 360) : 456
+
+          tl.to(detail, { width: expandedWidth, duration: 1.7 }, 0)
             .to(title, { scale: 0.4, opacity: 0.5, duration: 1.3 }, 0)
             .to([copy, link], { autoAlpha: 0, duration: 0.6 }, 0)
             .to(narrative, { autoAlpha: 1, duration: 0.9 }, 0.7)
