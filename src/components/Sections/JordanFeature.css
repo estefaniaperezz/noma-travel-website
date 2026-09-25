@@ -211,6 +211,24 @@
   }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .jordan-detail {
+    left: auto;
+    right: var(--edge);
+    top: 10vh;
+    width: min(38vw, 320px);
+  }
+
+  .jordan-detail__quote {
+    font-size: clamp(1.25rem, 2.8vw, 1.65rem);
+  }
+
+  .jordan-detail__meta {
+    font-size: 0.64rem;
+    gap: 0.35rem 0.7rem;
+  }
+}
+
 @media (max-width: 768px) {
   .jordan__content {
     left: var(--edge);
