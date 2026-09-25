@@ -6,7 +6,7 @@ import { EASE_EDITORIAL } from '../lib/motion'
 // Sri Lanka's phase is appended starting exactly here, on the same
 // Japan elements Namibia revealed — there is no handoff between two
 // different Japan instances, so there is nothing to seam.
-const JAPAN_ARRIVES_AT = 4.5
+const JAPAN_ARRIVES_AT = 3.6
 
 export function useDestinationJourney(containerRef) {
   useLayoutEffect(() => {
@@ -170,13 +170,13 @@ export function useDestinationJourney(containerRef) {
 
           // Resting pad — Sri Lanka sits fully settled, static, for the
           // remainder of the pin so there is a real window to Explore.
-          .to({}, { duration: 1.1 })
+          .to({}, { duration: 0.25 })
 
         ScrollTrigger.create({
           trigger: stage,
           start: 'top top',
           end: () => `+=${window.innerHeight * pinMultiplier}`,
-          scrub: 0.6,
+          scrub: 0.35,
           pin: true,
           anticipatePin: 1,
           animation: tl,
