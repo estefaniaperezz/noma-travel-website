@@ -54,6 +54,10 @@ export function useExploreState(sectionRef) {
   const teardownRef = useRef(null)
 
   const open = useCallback(() => {
+    // Hide the global navigation immediately, before any alignment
+    // scroll can fire the nav auto-hide listener and reveal it again.
+    document.documentElement.classList.add('explore-active')
+
     // A destination's Explore trigger can become clickable before its
     // section has scrolled fully flush with the viewport top (it sits
     // partway down the section, not at its very bottom edge). Locking
@@ -75,6 +79,7 @@ export function useExploreState(sectionRef) {
   }, [sectionRef])
 
   const close = useCallback(() => {
+    document.documentElement.classList.remove('explore-active')
     teardownRef.current?.()
     setIsOpen(false)
   }, [])
@@ -132,6 +137,7 @@ export function useExploreState(sectionRef) {
       window.removeEventListener('keydown', handleKeyDown)
       window.removeEventListener('touchmove', preventBackgroundTouch)
 
+      document.documentElement.classList.remove('explore-active')
       lenisRef.current?.start()
       // A destination's own scroll-scrubbed ScrollTrigger (e.g.
       // Patagonia/Jordan's image parallax) can end up with a stale
