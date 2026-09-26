@@ -32,6 +32,14 @@
   transform: translateY(-120%);
 }
 
+/* Explore is a full editorial takeover. Keep the global navigation
+   off-canvas even if a programmatic alignment scroll causes the
+   auto-hide listener to recalculate its normal scroll state. */
+.explore-active .nav {
+  transform: translateY(-120%);
+  pointer-events: none;
+}
+
 .nav__mark {
   font-family: var(--font-display);
   font-weight: 700;
